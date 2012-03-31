@@ -3,3 +3,4 @@ $(document).ready ->
   circle = paper.circle(100,100,100)
   circle.attr("fill", "red")
   circle.attr("stroke", "blue")
+  console.log(mapData)

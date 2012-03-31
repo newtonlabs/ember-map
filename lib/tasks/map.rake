@@ -10,6 +10,6 @@ namespace :map do
     map = doc.css('path').each_with_object({}) { |node, map| map[node['id']] = node['d'] }
 
     file = File.expand_path('app/assets/javascripts/data/map.js')
-    File.open(file, 'w') { |js| js.puts JSON.pretty_generate(map) }
+    File.open(file, 'w') { |js|  js.puts "App.mapData = #{JSON.pretty_generate(map)}" }
   end
 end
