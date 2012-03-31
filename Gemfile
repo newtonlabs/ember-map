@@ -10,9 +10,4 @@ gem 'jquery-rails'
 gem "haml"
 gem "haml-rails", :group => :development
 gem "bootstrap-sass", ">= 2.0.1"
-gem "rspec-rails", :group => [:development, :test]
-gem "factory_girl_rails", :group => [:development, :test]
-gem "simplecov", :group => [:development, :test]
 gem "jquery-ui-rails"
-gem "clearance"
-gem "highcharts-rails"
