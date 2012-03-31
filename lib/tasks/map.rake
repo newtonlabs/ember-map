@@ -1,4 +1,5 @@
 require 'csv'
+require 'nokogiri'
 STDOUT.sync = true
 
 namespace :map do

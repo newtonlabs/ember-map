@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$(document).ready ->
+  paper  = Raphael(200, 200, 320, 200)
+  circle = paper.circle(100,100,100)
+  circle.attr("fill", "red")
+  circle.attr("stroke", "blue")
