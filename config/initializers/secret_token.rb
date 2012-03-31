@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Embermap::Application.config.secret_token = 'e728d7ecf3aa24ac8fb3095ce3ee60161675fb79c32efa94fa42c6e01fe815d92638b6c3ba50c1baf4faf347a0a7e21afdc0818bd5d55be324507ac17af6147a'
+Embermap::Application.config.secret_token = '8ed39d724771447cd5b4c47825185d985e5b7b29da408a6d85a69d34bf9e591a2e2c1eb253e67ac3927a529c1135bb5a4128d7bccfc819df88d1c12ad36a222e'
