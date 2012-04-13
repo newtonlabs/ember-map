@@ -1,4 +1,7 @@
 class MapsController < ApplicationController
-  def index
+  def raphael
+  end
+
+  def d3
   end
 end

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.3'
-gem 'pg'
+#gem 'pg'
+gem 'sqlite3'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -9,6 +10,7 @@ group :assets do
 end
 
 gem 'raphael-rails'
+gem 'd3_rails'
 gem 'nokogiri'
 gem 'jquery-rails'
 gem "haml"

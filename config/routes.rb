@@ -1,4 +1,5 @@
 Embermap::Application.routes.draw do
-  get "maps/index"
-  root :to => "maps#index"
+  get "maps/raphael"
+  get "maps/d3"
+  root :to => "maps#raphael"
 end
