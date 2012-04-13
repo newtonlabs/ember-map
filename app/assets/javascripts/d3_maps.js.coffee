@@ -14,5 +14,6 @@ $(document).ready ->
       svg.selectAll(".state").style("stroke-width", 1).transition().duration(1000).attr('stroke','white')
 
     d3.selectAll("#draw path").on "click", ->
+      d3.selectAll(".state").attr("fill","#ccc")
       d3.select(@).style("stroke-width", 1).transition().duration(500).attr('fill','steelblue')
   )()
