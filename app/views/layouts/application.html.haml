@@ -32,7 +32,10 @@
           %a.brand{:href => "#"} Project name
           .nav-collapse
             %ul.nav
-              %li.active
+              %li
+                = link_to 'Raphael', '/maps/raphael'
+              %li
+                = link_to 'D3', '/maps/d3'
             %p.navbar-text.pull-right
               Logged in as
               %a{:href => "#"} username
