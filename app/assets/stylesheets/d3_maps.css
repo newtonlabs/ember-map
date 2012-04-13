@@ -1,20 +1,9 @@
-.chart {
-  background: #fff;
-  border: solid 1px #ddd;
-  box-shadow: 0 0 4px rgba(0,0,0,.2);
-  font: 10px sans-serif;
-  height: 180px;
-  position: relative;
-  width: 720px;
+#map-container {
+  height: 640px;
+  width: 1000px;
 }
 
-.chart svg {
-  border-left: solid 2px #ddd;
-  left: 360px;
-  position: absolute;
-  top: 0;
-}
-
+/*
 .chart pre {
   font: 12px monospace;
   height: 60px;
@@ -40,4 +29,4 @@
 .chart .data rect {
   fill: #eee;
   stroke: #ccc;
-}
+}*/
