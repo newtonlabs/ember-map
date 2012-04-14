@@ -4,4 +4,7 @@ class MapsController < ApplicationController
 
   def d3
   end
+
+  def learn
+  end
 end

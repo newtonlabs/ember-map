@@ -2,7 +2,7 @@
 %html{:lang => "en"}
   %head
     %meta{:charset => "utf-8"}/
-    %title= content_for?(:title) ? yield(:title) : "Nautilus"
+    %title= content_for?(:title) ? yield(:title) : "EmberMap"
     = csrf_meta_tags
     / Le styles
     = stylesheet_link_tag "application", :media => "all"
@@ -36,6 +36,8 @@
                 = link_to 'Raphael', '/maps/raphael'
               %li
                 = link_to 'D3', '/maps/d3'
+              %li
+                = link_to 'Learn D3', '/maps/learn'
             %p.navbar-text.pull-right
               Logged in as
               %a{:href => "#"} username
