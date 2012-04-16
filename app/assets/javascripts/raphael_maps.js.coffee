@@ -3,11 +3,11 @@ $(document).ready ->
   if ($('#map').length > 0)
     paper = Raphael('map',1000,640)
 
-    for state,path of mapData
+    for state in mapData
 
       # Setup the polygons with data values and such
-      poly = paper.path(path)
-      poly.attr("fill", "#ccc").attr('stroke','white').data('state',state)
+      poly = paper.path(state.path)
+      poly.attr("fill", "#ccc").attr('stroke','white').data('state',state.name)
 
       # Sample Click Binding.  Raphael maintains an internal object store with an id
       # Data is bound to these objects and can be fetched with the id

@@ -2,22 +2,26 @@ $(document).ready ->
   w = 1000
   h = 640
 
-
-  # Totally doing this wrong now that I understand it.. Bad for loop Bad!! Use date/enter!!
+  clickedColor = (clicked, name) ->
+    if (clicked == name) then 'steelblue' else '#ccc'
 
   (->
-    svg = d3.select("#draw").append("svg").attr("width", w).attr("height", h)
+    svg     = d3.select("#draw").append("svg").attr("width", w).attr("height", h)
     country = svg.append("g").attr("class","country")
-    for state,path of mapData
-      country.append("svg:path").attr("d", path).attr("state", state).attr("fill","#ccc").attr("stroke", "white").attr("class","state")
+    states  = country.selectAll('path').data(mapData).enter().append('path')
+      .attr('d', (d) -> d.path)
+      .attr('fill','#ccc')
+      .attr('stroke', 'white')
+      .attr('state', (d) -> d.name)
 
     d3.select("#draw button.remove").on "click", ->
-      svg.selectAll(".state").style("stroke-width", 1).transition().duration(1000).attr('stroke','#ccc')
+      svg.selectAll("path").transition().duration(1000).attr('stroke','#ccc')
 
     d3.select("#draw button.add").on "click", ->
-      svg.selectAll(".state").style("stroke-width", 1).transition().duration(1000).attr('stroke','white')
+      svg.selectAll("path").transition().duration(1000).attr('stroke','white')
 
     d3.selectAll("#draw path").on "click", ->
-      d3.selectAll(".state").attr("fill","#ccc")
-      d3.select(@).style("stroke-width", 1).transition().duration(500).attr('fill','steelblue')
+      clicked = $(@).attr('state')
+      d3.selectAll('path').transition().duration('350').attr('fill', (d) -> clickedColor(clicked, d.name))
+
   )()
