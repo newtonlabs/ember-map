@@ -21,8 +21,8 @@ $(document).ready ->
     svg.selectAll("path").transition().duration(1000).attr('stroke','white')
 
   d3.selectAll("#draw path").on "click", ->
-    d3.select(@).attr('fill', (d) -> 
-      d.clicks += 1 
+    d3.select(@).transition().duration("300").attr('fill', (d) ->
+      d.clicks += 1
       "rgb(#{(d.clicks * 25)}, 0, 0)")
 
   # d3.selectAll("#draw path").on "mouseover", ->
