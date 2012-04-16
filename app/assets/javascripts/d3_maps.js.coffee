@@ -22,3 +22,11 @@ $(document).ready ->
   d3.selectAll("#draw path").on "click", ->
     clicked = $(@).attr('state')
     d3.selectAll('path').transition().duration('350').attr('fill', (d) -> clickedColor(clicked, d.name))
+
+  # d3.selectAll("#draw path").on "mouseover", ->
+  #   clicked = $(@).attr('state')
+  #   d3.select(@).transition().duration('100').attr('fill', 'steelblue')
+
+  # d3.selectAll("#draw path").on "mouseout", ->
+  #   clicked = $(@).attr('state')
+  #   d3.select(@).transition().duration('100').attr('fill', '#ccc')
