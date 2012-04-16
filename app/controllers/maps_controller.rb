@@ -7,4 +7,10 @@ class MapsController < ApplicationController
 
   def learn
   end
+
+  def scatter
+  end
+
+  def scales
+  end
 end

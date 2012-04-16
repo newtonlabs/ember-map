@@ -4,27 +4,7 @@ w = 500
 h = 100
 barPadding = 1
 
-# svg = d3.select("#circles")
-#   .append("svg")
-#   .attr("width", w)
-#   .attr("height", h);
-
-# circles = svg.selectAll("circle")
-#   .data(dataset)
-#   .enter()
-#   .append("circle")
-
-# circles
-#   .attr("cx",(d,i) ->
-#     return (i * 50) + 25 )
-#   .attr("cy", h/2)
-#   .attr("r",(d)->
-#     d )
-#   .attr("fill", "yellow")
-#   .attr("stroke", "orange")
-#   .attr("stroke-width", "10px")
-
-chart = d3.select("#graph")
+chart = d3.select("#learn #graph")
   .append("svg")
   .attr("width",w)
   .attr("height",h)
@@ -49,3 +29,24 @@ d3.select("#color button.blue").on "click", ->
 
 d3.select("#color button.green").on "click", ->
   chart.selectAll("rect").transition().duration("500").attr("fill", (d) -> "rgb(0, #{(d * 10)}, 0)")
+
+
+# svg = d3.select("#circles")
+#   .append("svg")
+#   .attr("width", w)
+#   .attr("height", h);
+
+# circles = svg.selectAll("circle")
+#   .data(dataset)
+#   .enter()
+#   .append("circle")
+
+# circles
+#   .attr("cx",(d,i) ->
+#     return (i * 50) + 25 )
+#   .attr("cy", h/2)
+#   .attr("r",(d)->
+#     d )
+#   .attr("fill", "yellow")
+#   .attr("stroke", "orange")
+#   .attr("stroke-width", "10px")
