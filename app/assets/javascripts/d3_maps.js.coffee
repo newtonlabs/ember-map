@@ -12,6 +12,7 @@ $(document).ready ->
     .attr('fill','#ccc')
     .attr('stroke', 'white')
     .attr('state', (d) -> d.name)
+    .attr('clicks', 0)
 
   d3.select("#draw button.remove").on "click", ->
     svg.selectAll("path").transition().duration(1000).attr('stroke','#ccc')
@@ -20,8 +21,9 @@ $(document).ready ->
     svg.selectAll("path").transition().duration(1000).attr('stroke','white')
 
   d3.selectAll("#draw path").on "click", ->
-    clicked = $(@).attr('state')
-    d3.selectAll('path').transition().duration('350').attr('fill', (d) -> clickedColor(clicked, d.name))
+    d3.select(@).attr('fill', (d) -> 
+      d.clicks += 1 
+      "rgb(#{(d.clicks * 25)}, 0, 0)")
 
   # d3.selectAll("#draw path").on "mouseover", ->
   #   clicked = $(@).attr('state')
