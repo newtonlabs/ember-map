@@ -32,7 +32,7 @@ svg.selectAll("text").data(dataset).enter().append("text")
   .attr("font-size", "11px").attr "fill", "blue"
 
 d3.select("#scale button.default").on "click", ->
-  svg.selectAll("circle").transition().duration("500").attr("r", (d) -> rScale d[1])
+  svg.selectAll("circle").transition().duration("1500").attr("r", (d) -> rScale d[1])
 
 d3.select("#scale button.large").on "click", ->
-  svg.selectAll("circle").transition().duration("500").attr("r", (d) -> rScale d[1] * 3.00)
+  svg.selectAll("circle").transition().duration("1500").attr("r", (d) -> rScale d[1] * 3.00)
