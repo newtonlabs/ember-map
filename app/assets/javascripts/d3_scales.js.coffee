@@ -15,23 +15,16 @@ rScale = d3.scale.linear()
   .domain([ 0, d3.max(dataset, (d) -> d[1] ) ])
   .range([ 1, 20 ])
 
-svg = d3.select("#scales #graph")
-  .append("svg")
+svg = d3.select("#scales #graph").append("svg")
   .attr("width",  w)
   .attr("height", h)
 
-svg.selectAll("circle")
-  .data(dataset)
-  .enter()
-  .append("circle")
+svg.selectAll("circle").data(dataset).enter().append("circle")
   .attr("cx", (d) -> xScale d[0] )
   .attr("cy", (d) -> yScale d[1] )
   .attr("r",  (d) -> rScale d[1] )
 
-svg.selectAll("text")
-  .data(dataset)
-  .enter()
-  .append("text")
+svg.selectAll("text").data(dataset).enter().append("text")
   .text((d) -> d[0] + "," + d[1] )
   .attr("x", (d) -> xScale d[0] )
   .attr("y", (d) -> yScale d[1] )
@@ -43,5 +36,3 @@ d3.select("#scale button.default").on "click", ->
 
 d3.select("#scale button.large").on "click", ->
   svg.selectAll("circle").transition().duration("500").attr("r", (d) -> rScale d[1] * 3.00)
-
-
