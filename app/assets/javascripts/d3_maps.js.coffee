@@ -5,7 +5,7 @@ $(document).ready ->
   chartH   = $('#geo-graph').height()
   chartW   = $('#geo-graph').width()
   hueStep  = 4
-  barPad   = 90
+  barPad   = 80
   barSize  = chartH / (geoMapData.features.length )
 
   clickCount = (d) -> if d.clicks then d.clicks else 0
@@ -46,17 +46,6 @@ $(document).ready ->
     .attr("d", path)
     .attr('fill', '#ccc')
     .attr('stroke', 'white')
-
-  # rectangle = chart.append("g").attr("id", "gradient_test")
-
-  # rectangle.append("rect")
-  #   .attr("x","10")
-  #   .attr("y","10")
-  #   .attr("width", "75")
-  #   .attr("height", "75")
-  #   .attr("rx", "10")
-  #   .attr("ry", "10")
-  #   .attr("style", "fill:url(#barGradient); stroke: #005000; stroke-width: 1;")
 
   d3.selectAll("#geo-map path").on "click", ->
     d3.select(@).transition().duration("300").attr('fill', (d) ->
