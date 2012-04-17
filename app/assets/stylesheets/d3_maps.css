@@ -1,14 +1,14 @@
 #geo-map {
-  height: 550px;
-  width:  640px;
+  height: 540px;
+  width:  1000px;
   /*border-color: #ccc;*/
   /*border-style:solid;*/
   /*border-width:1px;*/
 }
 
 #geo-graph {
-  height: 550px;
-  width:  300px;
+  height: 540px;
+  width:  1000px;
   /*border-color: #ccc;*/
   /*border-style:solid;*/
   /*border-width: 1px;*/

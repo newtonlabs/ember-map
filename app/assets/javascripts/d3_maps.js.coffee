@@ -12,7 +12,7 @@ $(document).ready ->
   mapColor   = (d) -> "rgb(220, #{220-clickCount(d)*hueStep}, #{220-clickCount(d)*hueStep})"
   titleColor = (d) -> "rgb(#{clickCount(d)*hueStep},#{clickCount(d)*hueStep},#{clickCount(d)*hueStep})"
 
-  xy     = d3.geo.albersUsa().scale(700).translate([325,200])
+  xy     = d3.geo.albersUsa().scale(1000)#.translate([325,200])
   path   = d3.geo.path().projection(xy)
   svg    = d3.select("#geo-map").append("svg")
   states = svg.append("g").attr("id", "states")
