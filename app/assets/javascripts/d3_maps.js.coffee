@@ -17,9 +17,28 @@ $(document).ready ->
   svg    = d3.select("#geo-map").append("svg")
   states = svg.append("g").attr("id", "states")
   chart  = d3.select("#geo-graph").append("svg")
+  defs   = chart.append("defs")
   bars   = chart.append("g").attr("id","bars")
   counts = chart.append("g").attr("id","counts")
   titles = chart.append("g").attr("id","titles")
+
+  gradient = defs.append('linearGradient')
+    .attr("id", "barGradient")
+    .attr("x1", "0%")
+    .attr("y1", "0%")
+    .attr("x2", "100%")
+    .attr("y2", "100%")
+    .attr("spreadMethod", "pad")
+
+  gradient.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "#e4e4e4")
+    .attr("stop-opacity", "1")
+
+  gradient.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "#ff0900")
+    .attr("stop-opacity", "1")
 
   states.selectAll("path")
     .data(geoMapData.features)
@@ -27,6 +46,17 @@ $(document).ready ->
     .attr("d", path)
     .attr('fill', '#ccc')
     .attr('stroke', 'white')
+
+  # rectangle = chart.append("g").attr("id", "gradient_test")
+
+  # rectangle.append("rect")
+  #   .attr("x","10")
+  #   .attr("y","10")
+  #   .attr("width", "75")
+  #   .attr("height", "75")
+  #   .attr("rx", "10")
+  #   .attr("ry", "10")
+  #   .attr("style", "fill:url(#barGradient); stroke: #005000; stroke-width: 1;")
 
   d3.selectAll("#geo-map path").on "click", ->
     d3.select(@).transition().duration("300").attr('fill', (d) ->
@@ -44,14 +74,14 @@ $(document).ready ->
     .attr("width", (d) -> clickCount(d) * 4)
     .attr("height", barSize - 1)
     .attr("id", (d)  -> d.properties.name)
-    .attr("fill", (d)   -> mapColor(d))
+    .style('fill', "url(#gradient)" )
 
   counts.selectAll('text')
     .data(geoMapData.features)
     .enter()
     .append("text")
     .attr("x", (d, i) -> clickCount(d) * 4 )#i * barSize)
-    .attr("y", (d, i) -> i * barSize + 8 )
+    .attr("y", (d, i) -> i * barSize + 10 )
     .attr("font-family", "helvetica")
     .attr("font-size", "10px")
     .attr("fill", "black")
@@ -63,7 +93,7 @@ $(document).ready ->
     .append("text")
     .text((d) -> "#{d.properties.name}")
     .attr("x", (d, i) -> clickCount(d) * 4 )#i * barSize)
-    .attr("y", (d, i) -> i * barSize + 8 )
+    .attr("y", (d, i) -> i * barSize + 12 )
     .attr("font-family", "helvetica")
     .attr("font-size", "10px")
     .attr("fill", "#444444")
@@ -72,7 +102,7 @@ $(document).ready ->
   updateChart = (d) ->
     d3.select("#bars rect[id='#{d.properties.name}']").transition().duration(400)
       .attr("width", (d) -> d.clicks * 4)
-      .attr('fill', (d) -> mapColor(d) )
+      .attr("style", "fill:url(#barGradient); ")
     d3.select("#counts text[id='#{d.properties.name}']").transition().duration(400)
       .text((d) -> "#{d.clicks}")
       .attr("x", (d) -> d.clicks * 4 + barPad + 8)
