@@ -1,32 +1,15 @@
-#map-container {
-  height: 640px;
-  width: 1000px;
+#geo-map {
+  height: 550px;
+  width:  640px;
+  /*border-color: #ccc;*/
+  /*border-style:solid;*/
+  /*border-width:1px;*/
 }
 
-/*
-.chart pre {
-  font: 12px monospace;
-  height: 60px;
-  left: 10px;
-  position: absolute;
-  top: 0;
-  width: 340px;
+#geo-graph {
+  height: 550px;
+  width:  300px;
+  /*border-color: #ccc;*/
+  /*border-style:solid;*/
+  /*border-width: 1px;*/
 }
-
-.chart circle.little {
-  fill: #aaa;
-  stroke: #666;
-  stroke-width: 1.5px;
-}
-
-.chart button {
-  left: 275px;
-  position: absolute;
-  top: 145px;
-  width: 80px;
-}
-
-.chart .data rect {
-  fill: #eee;
-  stroke: #ccc;
-}*/
