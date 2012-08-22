@@ -5,14 +5,14 @@ $(document).ready ->
   chartH   = $('#geo-graph').height()
   chartW   = $('#geo-graph').width()
   hueStep  = 4
-  barPad   = 80
+  barPad   = 20
   barSize  = chartH / (geoMapData.features.length )
 
   clickCount = (d) -> if d.clicks then d.clicks else 0
   mapColor   = (d) -> "rgb(220, #{220-clickCount(d)*hueStep}, #{220-clickCount(d)*hueStep})"
   titleColor = (d) -> "rgb(#{clickCount(d)*hueStep},#{clickCount(d)*hueStep},#{clickCount(d)*hueStep})"
 
-  xy     = d3.geo.albersUsa().scale(1000)#.translate([325,200])
+  xy     = d3.geo.albersUsa().scale(800).translate([350,200]) # Move the x,y of the map
   path   = d3.geo.path().projection(xy)
   svg    = d3.select("#geo-map").append("svg")
   states = svg.append("g").attr("id", "states")
@@ -95,5 +95,3 @@ $(document).ready ->
     d3.select("#counts text[id='#{d.properties.name}']").transition().duration(400)
       .text((d) -> "#{d.clicks}")
       .attr("x", (d) -> d.clicks * 4 + barPad + 8)
-
-

@@ -13,4 +13,7 @@ class MapsController < ApplicationController
 
   def scales
   end
+
+  def force
+  end
 end
